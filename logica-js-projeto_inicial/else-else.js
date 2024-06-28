@@ -1,27 +1,24 @@
 
-
-
 alert(`Boas vindas ao jogo do número secreto`);
-let numeroSecreto = 12;
-let chute ;
-let tentativas  = 1
+let numeroSecreto = parseInt(Math.random() * 100 + 1);
+console.log(numeroSecreto);
+let chute;
+let tentativas = 1;
 
-
+chute = Number(prompt('Escolha um número de 1 a 100'));
 while (chute != numeroSecreto) {
-    //enquanto(while) o chute não for o numero correto, continuar(!) tentando.
-
     if (chute == numeroSecreto) {
-        alert(`Parabéns você acertou com ${tentativas} tentavivas! O número correto é ${numeroSecreto} `);
-        //QUANDO UTILIZAR $, SEMPRE USAR CRASE NO LUGAR DE ASPAS 
+        break;
     } else {
         if (numeroSecreto < chute) {
-            chute = prompt(`O número é menor que ${chute} tente novamente`);
+            chute = Number(prompt(`O número secreto é menor que ${chute}. Tente novamente`));
         } else {
-            chute = prompt(`O número é maior que ${chute} tente novamente`);
+            chute = Number(prompt(`O número secreto é maior que ${chute}. Tente novamente`));
         }
-        if (chute == numeroSecreto) {
-            alert(`Parabéns você acertou com ${tentativas} tentavivas! O número correto é ${numeroSecreto} `);
+        tentativas++;
     }
-    tentativas++
 }
-}
+
+let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+alert(`Isso aí! Você descobriu o ${numeroSecreto} com ${tentativas} ${palavraTentativa}.`);
+
